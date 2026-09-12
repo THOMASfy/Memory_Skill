@@ -1,0 +1,9 @@
+numpy>=1.24
+pyyaml>=6.0
+torch>=2.0
+transformers>=4.36
+tqdm>=4.65
+# Linux/macOS: pytrec_eval. Windows if that fails to build: pytrec-eval-terrier
+# Both install as import pytrec_eval.
+pytrec_eval>=0.5
+

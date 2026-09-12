@@ -1,0 +1,7 @@
+﻿__pycache__/
+*.pyc
+.venv/
+runs/
+data/
+*.npy
+.DS_Store
