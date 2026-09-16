@@ -152,6 +152,20 @@ DPR on NQ/TriviaQA 常报 **Hit@20 / Hit@100**（Accuracy@k）。
 
 chunk 不是论文默认。只有语料不是现成 passage、或模型 `max_length` 会截断关键内容时才切块；切块后数字不可直接对论文。
 
+Apply 下的 skill 自进化由 `skill_evolution` 在**工作副本**上编译，禁止把检索段落正文写入本文件。基线三个槽位必须保持恒等；运行时只替换标记内部，主干与 Hard rules 只读。
+
+<!-- EVOLVE:QUERY:START -->
+恒等：q' = q
+<!-- EVOLVE:QUERY:END -->
+
+<!-- EVOLVE:RANK:START -->
+恒等：score(d) = sim(q, d)
+<!-- EVOLVE:RANK:END -->
+
+<!-- EVOLVE:FILTER:START -->
+恒等：keep(d) = true
+<!-- EVOLVE:FILTER:END -->
+
 ## 脚本
 
 在 skill 根目录安装：`pip install -r scripts/requirements.txt`
@@ -163,8 +177,9 @@ chunk 不是论文默认。只有语料不是现成 passage、或模型 `max_len
 | `scripts/encode.py` | 按契约编码 |
 | `scripts/retrieve.py` | 精确检索 |
 | `scripts/evaluate.py` | pytrec_eval + 对表 |
+| `python -m skill_evolution --self-test` | Apply 自进化：工作副本上用 Rocchio / 时间核改槽位 |
 
-Agent **执行**这些脚本，不要复制进对话后改逻辑。改契约只改 YAML。
+Agent **执行**这些脚本，不要复制进对话后改逻辑。改契约只改 YAML。自进化只允许改 `EVOLVE:QUERY` / `EVOLVE:RANK` / `EVOLVE:FILTER` 标记内的公式，禁止把检索正文写入 skill。
 
 ## Additional resources
 
