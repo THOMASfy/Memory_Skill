@@ -1,0 +1,9 @@
+n=500 enough_r1=278 query_r1=222
+rounds={3: 215, 1: 278, 2: 7} r1_slot={'query': 222, None: 278} slots={'query': 222, 'rank': 215, None: 500}
+r1 gold in logged top5=417 miss_top5=53
+salvage r1miss5->final@5=5 r1in5->final_out10=47
+dense@10 only=58 evo@10 only=5 both=391 drop vs dense@10=58
+qa both=252 dense_only=72 evo_only=18
+why={'missing_query_once': 222, 'enough': 278, 'enough=1': 278}
+tvc=[('tvc=entity', 231), ('tvc=count', 200), ('tvc=entity:entity', 101), ('tvc=count:count', 62), ('tvc=measure', 30), ('tvc=place', 22), ('tvc=datetime', 11), ('tvc=measure:duration', 6), ('tvc=place:place', 5), ('tvc=item', 4), ('tvc=datetime:day', 4), ('tvc=color', 2)]
+miss_lab=[('specific count number', 179), ('specific duration minutes', 21), ('specific named entity', 6), ('specific fact value', 6), ('specific place name', 5), ('specific degree name', 1), ('specific color', 1), ('specific screen size number', 1), ('specific date', 1), ('specific purchased item', 1)]

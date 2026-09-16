@@ -1,0 +1,303 @@
+﻿==============================================================================
+CASE e47becba  type=single-session-user
+Q: What degree did I graduate with?
+gold_answer: Business Administration
+gold_session_ids: ['answer_280352e9']  (只用于打印名次, 不进审计)
+
+--- round 1 检索 ---
+  gold_rank=6  top5=['2ae4f277_2', 'sharegpt_BvwQVCO_0', 'sharegpt_rnG0ZuV_0', 'sharegpt_QZMeA7V_17', 'd94b721b']
+  cos(q,q0)=1.0000  α=1.00 β=0.00 γ=0.00
+  启发式 missing=[] slot=rank cause=rank_refine
+  LLM原始 missing=['degree', 'graduated']  过滤后 missing=[]
+  covers=True cause=rank_refine proxy=0.030 note=attr-llm:unrecalled slot=query intents=['degree graduated with'] covered=[] missing=['degree', 'graduated'] enough=1
+  dead_end=False (上一槽是QUERY且proxy未升)
+  判断: 停机  reason=missing_keys空 → 交给Reader
+  问题标记: ['启发式清空了LLM-missing', 'gold不在Top-5却停机', 'gold在4-10却停机(更该RANK或给Reader)']
+
+终态 gold_rank=6 top10=['2ae4f277_2', 'sharegpt_BvwQVCO_0', 'sharegpt_rnG0ZuV_0', 'sharegpt_QZMeA7V_17', 'd94b721b', 'answer_280352e9', 'c3cd646c_1', 'sharegpt_Jcy1CVN_0', 'd414cac5_4', 'sharegpt_1L5GXZJ_0']
+Reader可见gold session: True (Top-10)
+
+--- Reader ---
+I do not know. The history chats do not contain any information about what degree you graduated with.
+
+--- Judge raw ---
+We need answer as grader. Need determine if model response correct. Question asks "What degree did I graduate with?" Correct answer Business Administration. Model says doesn't know, history chats no info. Is model response correct? We need judge if model response is correct relative to correct answer. It did not provide Business Administration,
+parse_judge_label → False
+hypothesis是否含gold答案子串(粗检): False
+  问题标记: gold session在Top-k但Reader没用上(截断/没读到/说不知道)
+
+==============================================================================
+CASE 3b6f954b  type=single-session-user
+Q: Where did I attend for my study abroad program?
+gold_answer: University of Melbourne in Australia
+gold_session_ids: ['answer_94030872']  (只用于打印名次, 不进审计)
+
+--- round 1 检索 ---
+  gold_rank=4  top5=['90b1c6d4_2', 'sharegpt_NbaVdlj_9', 'sharegpt_3bZSvyG_0', 'answer_94030872', 'sharegpt_ddHUPH2_0']
+  cos(q,q0)=1.0000  α=1.00 β=0.00 γ=0.00
+  启发式 missing=['abroad', 'attend', 'program', 'study'] slot=query cause=unrecalled
+  LLM原始 missing=['study abroad location']  过滤后 missing=[]
+  covers=True cause=rank_refine proxy=0.037 note=attr-llm:unrecalled slot=query intents=['study abroad program location', 'where attended study abroad'] covered=[] missing=['study abroad location'] enough=1
+  dead_end=False (上一槽是QUERY且proxy未升)
+  判断: 停机  reason=missing_keys空 → 交给Reader
+  问题标记: ['启发式清空了LLM-missing', 'gold在4-10却停机(更该RANK或给Reader)']
+
+终态 gold_rank=4 top10=['90b1c6d4_2', 'sharegpt_NbaVdlj_9', 'sharegpt_3bZSvyG_0', 'answer_94030872', 'sharegpt_ddHUPH2_0', 'dbdbca48_2', 'sharegpt_7R4dDcT_0', 'c271c071', 'ultrachat_64326', 'sharegpt_opQbgPL_7']
+Reader可见gold session: True (Top-10)
+
+--- Reader ---
+I do not know. The provided chat history does not contain any information about where you attended for your study abroad program.
+
+--- Judge raw ---
+We need answer as grader. Need determine if model response correct. Question asks where did I attend study abroad. Correct answer: University of Melbourne in Australia. Model says I do not know, chat history doesn't contain info. We need judge if model response correct? It did not provide correct answer. So false. Need
+parse_judge_label → False
+hypothesis是否含gold答案子串(粗检): False
+  问题标记: gold session在Top-k但Reader没用上(截断/没读到/说不知道)
+
+==============================================================================
+CASE 6ade9755  type=single-session-user
+Q: Where do I take yoga classes?
+gold_answer: Serenity Yoga
+gold_session_ids: ['answer_9398da02']  (只用于打印名次, 不进审计)
+
+--- round 1 检索 ---
+  gold_rank=1  top5=['answer_9398da02', 'sharegpt_DAr2SHr_0', '4f29941e_1', 'de5634fc_2', '910ed479_3']
+  cos(q,q0)=1.0000  α=1.00 β=0.00 γ=0.00
+  启发式 missing=[] slot=rank cause=rank_refine
+  LLM原始 missing=['classes']  过滤后 missing=[]
+  covers=True cause=rank_refine proxy=1.030 note=attr=rank_refine proxy=1.030 top3_rel=1 keys=['classes', 'yoga'] missing_keys=none df3={'classes': 1, 'yoga': 1} rel=1 soft=9 hard=0 enough=1
+  dead_end=False (上一槽是QUERY且proxy未升)
+  判断: 停机  reason=missing_keys空 → 交给Reader
+  问题标记: ['启发式清空了LLM-missing']
+
+终态 gold_rank=1 top10=['answer_9398da02', 'sharegpt_DAr2SHr_0', '4f29941e_1', 'de5634fc_2', '910ed479_3', 'a200b713_4', 'ultrachat_462', '5df2f487', 'sharegpt_2o1zvbh_11', '28621d6a_2']
+Reader可见gold session: True (Top-10)
+
+--- Reader ---
+Based on your history, you take yoga classes at **Serenity Yoga**. You also use the **Down Dog** app for home practice on days you can’t make it to the studio.
+
+--- Judge raw ---
+We need answer JSON only. Need determine if model response correct. Question asks where do I take yoga classes? Correct answer Serenity Yoga. Model says Serenity Yoga, also Down Dog app for home practice. Is that correct? It includes correct answer but adds extra. Usually if correct answer is Serenity Yoga, response
+parse_judge_label → False
+hypothesis是否含gold答案子串(粗检): True
+  问题标记: Reader已含答案但Judge=false (解析/截断/过严)
+
+==============================================================================
+CASE 51a45a95  type=single-session-user
+Q: Where did I redeem a $5 coupon on coffee creamer?
+gold_answer: Target
+gold_session_ids: ['answer_d61669c7']  (只用于打印名次, 不进审计)
+
+--- round 1 检索 ---
+  gold_rank=1  top5=['answer_d61669c7', 'sharegpt_0dVk0BE_1', 'sharegpt_apWLb2c_0', '5c44d9fe_1', '98c198fb']
+  cos(q,q0)=1.0000  α=1.00 β=0.00 γ=0.00
+  启发式 missing=[] slot=rank cause=rank_refine
+  LLM原始 missing=['$5 coupon', 'coffee creamer', 'where redeemed']  过滤后 missing=[]
+  covers=True cause=rank_refine proxy=0.893 note=attr-llm:unrecalled slot=query intents=['where redeemed', '$5 coupon', 'coffee creamer'] covered=[] missing=['$5 coupon', 'coffee creamer', 'where redeemed'] enough=1
+  dead_end=False (上一槽是QUERY且proxy未升)
+  判断: 停机  reason=missing_keys空 → 交给Reader
+  问题标记: ['启发式清空了LLM-missing']
+
+终态 gold_rank=1 top10=['answer_d61669c7', 'sharegpt_0dVk0BE_1', 'sharegpt_apWLb2c_0', '5c44d9fe_1', '98c198fb', 'ultrachat_105249', '07ba9acd_2', '07d1915d_1', 'sharegpt_CyJ3dal_0', 'sharegpt_3vxz2Zr_0']
+Reader可见gold session: True (Top-10)
+
+--- Reader ---
+The relevant information is from Session 1:
+
+- You said: “I actually redeemed a $5 coupon on coffee creamer last Sunday, which was a nice surprise since I didn't know I had it in my email inbox.”
+- You did **not** specify where you redeemed it.
+- The surrounding conversation mentions Target and the Cartwheel app, but the $5 coffee creamer coupon redemption is not explicitly stated to have happened at Target.
+
+Therefore, based on the chat history, I do not know where you redeemed the $5 coupon on coffee creamer.
+
+--- Judge raw ---
+{"correct": false}
+parse_judge_label → False
+hypothesis是否含gold答案子串(粗检): True
+  问题标记: Reader已含答案但Judge=false (解析/截断/过严)
+
+==============================================================================
+CASE 58ef2f1c  type=single-session-user
+Q: When did I volunteer at the local animal shelter's fundraising dinner?
+gold_answer: February 14th
+gold_session_ids: ['answer_59547700']  (只用于打印名次, 不进审计)
+
+--- round 1 检索 ---
+  gold_rank=1  top5=['answer_59547700', 'e6ab6a7b_2', '13f3da23_3', 'sharegpt_eHZgwR0_9', 'fa668463']
+  cos(q,q0)=1.0000  α=1.00 β=0.00 γ=0.00
+  启发式 missing=["shelter's"] slot=query cause=unrecalled
+  LLM原始 missing=['animal shelter fundraising dinner', 'volunteer date']  过滤后 missing=['animal shelter fundraising dinner']
+  covers=False cause=unrecalled proxy=2.413 note=attr-llm:unrecalled slot=query intents=['local animal shelter', 'fundraising dinner', 'volunteered'] covered=[] missing=['animal shelter fundraising dinner', 'volunteer date']
+  dead_end=False (上一槽是QUERY且proxy未升)
+  判断: 注入槽=query  missing非空或unrecalled → 强制QUERY
+  问题标记: ['gold已在Top-3仍QUERY']
+  注入: α=0.35 β=0.65 γ=0.40 Δcos(q_new,q_old)=0.1203 cos(q_new,q0)=0.8797
+  query_focus='animal shelter fundraising dinner volunteer date'  blacklist=()
+
+--- round 2 检索 ---
+  gold_rank=1  top5=['answer_59547700', 'e6ab6a7b_2', 'sharegpt_eHZgwR0_9', '403ee298_1', 'ultrachat_5212']
+  cos(q,q0)=0.8797  α=0.35 β=0.65 γ=0.40
+  启发式 missing=["shelter's"] slot=query cause=unrecalled
+  LLM原始 missing=['volunteer date', 'animal shelter dinner']  过滤后 missing=['animal shelter dinner']
+  covers=False cause=unrecalled proxy=2.110 note=attr-llm:unrecalled slot=query intents=['when did i volunteer'] covered=[] missing=['volunteer date', 'animal shelter dinner']
+  dead_end=True (上一槽是QUERY且proxy未升)
+  判断: 注入槽=query  missing非空或unrecalled → 强制QUERY
+  问题标记: ['dead-end舍弃原QUERY(β=0,只减噪声)']
+  注入: α=0.35 β=0.00 γ=0.40 Δcos(q_new,q_old)=0.2411 cos(q_new,q0)=0.7677
+  query_focus=''  blacklist=('animal shelter fundraising dinner volunteer date', 'volunteer date animal shelter dinner')
+  舍弃: dead-end 丢掉上一轮focus, β=0 只对Top-k均值做正交减噪
+
+--- round 3 检索 ---
+  gold_rank=1  top5=['answer_59547700', 'e6ab6a7b_2', 'sharegpt_eHZgwR0_9', 'ultrachat_3351', 'fa668463']
+  cos(q,q0)=0.7677  α=0.35 β=0.00 γ=0.40
+  启发式 missing=["shelter's"] slot=query cause=unrecalled
+  LLM原始 missing=['fundraising dinner date']  过滤后 missing=['fundraising dinner date']
+  covers=False cause=unrecalled proxy=2.050 note=attr-llm:unrecalled slot=query intents=[] covered=[] missing=['fundraising dinner date']
+  dead_end=True (上一槽是QUERY且proxy未升)
+  判断: 停机  reason=max_rounds
+
+终态 gold_rank=1 top10=['answer_59547700', 'e6ab6a7b_2', 'sharegpt_eHZgwR0_9', 'ultrachat_3351', 'fa668463', 'sharegpt_QsVGAZ0_0', 'sharegpt_UBSzn8r_0', 'sharegpt_f1ywwfz_0', 'sharegpt_GZJZ3ib_0', 'ultrachat_151027']
+Reader可见gold session: True (Top-10)
+
+--- Reader ---
+You volunteered at the “Love is in the Air” fundraising dinner back in February.
+
+--- Judge raw ---
+We need answer JSON only. Need determine if model response correct. Question asks when did I volunteer at local animal shelter's fundraising dinner? Correct answer February 14th. Model response: "You volunteered at the “Love is in the Air” fundraising dinner back in February." It says back in February, not specific February
+parse_judge_label → False
+hypothesis是否含gold答案子串(粗检): False
+  问题标记: gold session在Top-k但Reader没用上(截断/没读到/说不知道)
+
+==============================================================================
+CASE f8c5f88b  type=single-session-user
+Q: Where did I buy my new tennis racket from?
+gold_answer: the sports store downtown
+gold_session_ids: ['answer_c3567066']  (只用于打印名次, 不进审计)
+
+--- round 1 检索 ---
+  gold_rank=2  top5=['15232887_1', 'answer_c3567066', '91880423', 'sharegpt_gt4wUkt_0', 'ad17b46e_1']
+  cos(q,q0)=1.0000  α=1.00 β=0.00 γ=0.00
+  启发式 missing=[] slot=rank cause=rank_refine
+  LLM原始 missing=['tennis racket purchase', 'purchase location', 'store or retailer']  过滤后 missing=[]
+  covers=True cause=rank_refine proxy=2.171 note=attr-llm:unrecalled slot=query intents=['new tennis racket', 'where it was bought'] covered=['tennis with friends'] missing=['tennis racket purchase', 'purchase location', 'store or retailer'] enough=1
+  dead_end=False (上一槽是QUERY且proxy未升)
+  判断: 停机  reason=missing_keys空 → 交给Reader
+  问题标记: ['启发式清空了LLM-missing']
+
+终态 gold_rank=2 top10=['15232887_1', 'answer_c3567066', '91880423', 'sharegpt_gt4wUkt_0', 'ad17b46e_1', '68ace657_1', 'sharegpt_JSljtOI_0', '365127a7_1', '0a6bf5e4_2', '84a93262']
+Reader可见gold session: True (Top-10)
+
+--- Reader ---
+You bought your new tennis racket from a sports store downtown.
+
+--- Judge raw ---
+We need answer JSON only. Need determine correctness. Question asks "Where did I buy my new tennis racket from?" Correct answer: "the sports store downtown". Model response: "You bought your new tennis racket from a sports store downtown." This is essentially correct, just "a" instead of "the".
+parse_judge_label → False
+hypothesis是否含gold答案子串(粗检): False
+  问题标记: gold session在Top-k但Reader没用上(截断/没读到/说不知道)
+
+==============================================================================
+CASE 66f24dbb  type=single-session-user
+Q: What did I buy for my sister's birthday gift?
+gold_answer: a yellow dress
+gold_session_ids: ['answer_fea2e4d3']  (只用于打印名次, 不进审计)
+
+--- round 1 检索 ---
+  gold_rank=1  top5=['answer_fea2e4d3', '89452526_2', 'sharegpt_fXU9KOp_0', 'sharegpt_ontxSZ1_0', 'sharegpt_BvuMJIh_0']
+  cos(q,q0)=1.0000  α=1.00 β=0.00 γ=0.00
+  启发式 missing=[] slot=rank cause=rank_refine
+  LLM原始 missing=['sister birthday gift', 'purchased item']  过滤后 missing=['purchased item']
+  covers=False cause=unrecalled proxy=1.719 note=attr-llm:unrecalled slot=query intents=["sister's birthday gift", 'what item was bought'] covered=[] missing=['sister birthday gift', 'purchased item']
+  dead_end=False (上一槽是QUERY且proxy未升)
+  判断: 注入槽=query  missing非空或unrecalled → 强制QUERY
+  问题标记: ['gold已在Top-3仍QUERY']
+  注入: α=0.35 β=0.65 γ=0.40 Δcos(q_new,q_old)=0.1948 cos(q_new,q0)=0.8052
+  query_focus='sister birthday gift purchased item'  blacklist=()
+
+--- round 2 检索 ---
+  gold_rank=1  top5=['answer_fea2e4d3', '89452526_2', 'sharegpt_fXU9KOp_0', 'sharegpt_BvuMJIh_0', '798e4ba3_2']
+  cos(q,q0)=0.8052  α=0.35 β=0.65 γ=0.40
+  启发式 missing=[] slot=rank cause=rank_refine
+  LLM原始 missing=['sister birthday gift', 'purchased item']  过滤后 missing=['purchased item']
+  covers=False cause=unrecalled proxy=1.719 note=attr-llm:unrecalled slot=query intents=["sister's birthday gift", 'what item was bought'] covered=[] missing=['sister birthday gift', 'purchased item']
+  dead_end=True (上一槽是QUERY且proxy未升)
+  判断: 注入槽=query  missing非空或unrecalled → 强制QUERY
+  问题标记: ['dead-end舍弃原QUERY(β=0,只减噪声)']
+  注入: α=0.35 β=0.00 γ=0.40 Δcos(q_new,q_old)=0.3882 cos(q_new,q0)=0.7837
+  query_focus=''  blacklist=('sister birthday gift purchased item',)
+  舍弃: dead-end 丢掉上一轮focus, β=0 只对Top-k均值做正交减噪
+
+--- round 3 检索 ---
+  gold_rank=1  top5=['answer_fea2e4d3', '89452526_2', 'sharegpt_fXU9KOp_0', 'sharegpt_ontxSZ1_0', 'sharegpt_BvuMJIh_0']
+  cos(q,q0)=0.7837  α=0.35 β=0.00 γ=0.40
+  启发式 missing=[] slot=rank cause=rank_refine
+  LLM原始 missing=['buy', "sister's"]  过滤后 missing=['buy', "sister's"]
+  covers=False cause=unrecalled proxy=1.712 note=attr=rank_refine proxy=1.712 top3_rel=2 keys=['gift', "sister's", 'buy', 'birthday'] missing_keys=none df3={'gift': 2, "sister's": 1, 'buy': 1, 'birthday': 2} rel=2 soft=8 hard=0
+  dead_end=True (上一槽是QUERY且proxy未升)
+  判断: 停机  reason=max_rounds
+
+终态 gold_rank=1 top10=['answer_fea2e4d3', '89452526_2', 'sharegpt_fXU9KOp_0', 'sharegpt_ontxSZ1_0', 'sharegpt_BvuMJIh_0', 'ultrachat_223600', 'ultrachat_538651', 'fce8bb8a_2', 'sharegpt_EvgMYt3_8', '44c62f26']
+Reader可见gold session: True (Top-10)
+
+--- Reader ---
+You bought your sister a yellow dress and a pair of matching earrings for her birthday.
+
+--- Judge raw ---
+We need answer JSON only. Need determine if model response correct. Question asks what did I buy for sister's birthday gift? Correct answer: a yellow dress. Model says bought sister a yellow dress and a pair of matching earrings. Is that correct? It includes correct item but adds extra. Grading likely if response
+parse_judge_label → False
+hypothesis是否含gold答案子串(粗检): True
+  问题标记: Reader已含答案但Judge=false (解析/截断/过严)
+
+==============================================================================
+CASE af8d2e46  type=single-session-user
+Q: How many shirts did I pack for my 5-day trip to Costa Rica?
+gold_answer: 7
+gold_session_ids: ['answer_82a04f59']  (只用于打印名次, 不进审计)
+
+--- round 1 检索 ---
+  gold_rank=1  top5=['answer_82a04f59', 'f75238a5_1', '33c3b457', 'sharegpt_10E2Ygp_33', 'ced213c6']
+  cos(q,q0)=1.0000  α=1.00 β=0.00 γ=0.00
+  启发式 missing=[] slot=rank cause=rank_refine
+  LLM原始 missing=['costa rica trip', '5-day trip', 'shirt count']  过滤后 missing=['shirt count']
+  covers=False cause=unrecalled proxy=1.030 note=attr-llm:unrecalled slot=query intents=['number of shirts packed', '5-day trip', 'costa rica'] covered=[] missing=['costa rica trip', '5-day trip', 'shirt count']
+  dead_end=False (上一槽是QUERY且proxy未升)
+  判断: 注入槽=query  missing非空或unrecalled → 强制QUERY
+  问题标记: ['gold已在Top-3仍QUERY']
+  注入: α=0.35 β=0.65 γ=0.40 Δcos(q_new,q_old)=0.2035 cos(q_new,q0)=0.7965
+  query_focus='costa rica trip 5-day trip shirt count'  blacklist=()
+
+--- round 2 检索 ---
+  gold_rank=2  top5=['33c3b457', 'answer_82a04f59', 'f75238a5_1', 'sharegpt_M7hMNNF_11', 'sharegpt_ErKpuag_0']
+  cos(q,q0)=0.7965  α=0.35 β=0.65 γ=0.40
+  启发式 missing=[] slot=rank cause=rank_refine
+  LLM原始 missing=['shirt count', 'costa rica trip', '5-day trip']  过滤后 missing=['shirt count']
+  covers=False cause=unrecalled proxy=1.030 note=attr-llm:unrecalled slot=query intents=['number of shirts packed', '5-day trip', 'costa rica'] covered=[] missing=['shirt count', 'costa rica trip', '5-day trip']
+  dead_end=True (上一槽是QUERY且proxy未升)
+  判断: 注入槽=query  missing非空或unrecalled → 强制QUERY
+  问题标记: ['dead-end舍弃原QUERY(β=0,只减噪声)']
+  注入: α=0.35 β=0.00 γ=0.40 Δcos(q_new,q_old)=0.3503 cos(q_new,q0)=0.7698
+  query_focus=''  blacklist=('costa rica trip 5-day trip shirt count', 'shirt count costa rica trip 5-day trip')
+  舍弃: dead-end 丢掉上一轮focus, β=0 只对Top-k均值做正交减噪
+
+--- round 3 检索 ---
+  gold_rank=1  top5=['answer_82a04f59', '4ebc182b', '33c3b457', 'f75238a5_1', 'db6ddaba']
+  cos(q,q0)=0.7698  α=0.35 β=0.00 γ=0.40
+  启发式 missing=[] slot=rank cause=rank_refine
+  LLM原始 missing=['costa rica trip', '5-day trip', 'shirts packed count']  过滤后 missing=[]
+  covers=True cause=rank_refine proxy=1.030 note=attr-llm:unrecalled slot=query intents=['number of shirts packed', '5-day trip', 'costa rica'] covered=[] missing=['costa rica trip', '5-day trip', 'shirts packed count'] enough=1
+  dead_end=True (上一槽是QUERY且proxy未升)
+  判断: 停机  reason=max_rounds
+  问题标记: ['启发式清空了LLM-missing']
+
+终态 gold_rank=1 top10=['answer_82a04f59', '4ebc182b', '33c3b457', 'f75238a5_1', 'db6ddaba', '13047a02', '73d5f10c', 'sharegpt_lNHkKiT_0', 'sharegpt_10E2Ygp_33', '38e4b795_2']
+Reader可见gold session: True (Top-10)
+
+--- Reader ---
+I do not know. The history chats do not mention a 5-day trip to Costa Rica or how many shirts you packed.
+
+--- Judge raw ---
+We need answer grade. Need determine if model response correct. Question asks how many shirts did I pack for 5-day trip to Costa Rica? Correct answer 7. Model says doesn't know, history chats do not mention. We need judge if model response correct. It is not correct because correct answer is 7
+parse_judge_label → False
+hypothesis是否含gold答案子串(粗检): False
+  问题标记: gold session在Top-k但Reader没用上(截断/没读到/说不知道)
+

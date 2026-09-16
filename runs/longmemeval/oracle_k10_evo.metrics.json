@@ -1,0 +1,13 @@
+{
+  "n": 5,
+  "qa_accuracy": null,
+  "session_recall@10": 1.0,
+  "qa_by_type": {},
+  "recall@10_by_type": {
+    "temporal-reasoning": 1.0
+  },
+  "split": "oracle",
+  "evolve": true,
+  "top_k": 10,
+  "model": null
+}

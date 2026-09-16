@@ -1,0 +1,29 @@
+{
+  "n": 20,
+  "overall_accuracy": 0.55,
+  "task_averaged_accuracy": 0.55,
+  "abstention_accuracy": null,
+  "abstention_n": 0,
+  "qa_by_type": {
+    "single-session-user": {
+      "accuracy": 0.55,
+      "n": 20
+    }
+  },
+  "retrieval": {
+    "granularity": "session",
+    "metrics@5": {
+      "recall": 0.85,
+      "ndcg": 0.7355,
+      "n": 20
+    },
+    "metrics@10": {
+      "recall": 0.9,
+      "ndcg": 0.7513,
+      "n": 20
+    }
+  },
+  "recall@5_by_type": {
+    "single-session-user": 0.85
+  }
+}

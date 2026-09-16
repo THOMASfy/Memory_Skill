@@ -1,0 +1,59 @@
+{
+  "n": 500,
+  "overall_accuracy": 0.648,
+  "task_averaged_accuracy": 0.6288,
+  "abstention_accuracy": 0.8667,
+  "abstention_n": 30,
+  "qa_by_type": {
+    "single-session-user": {
+      "accuracy": 0.6571,
+      "n": 70
+    },
+    "single-session-preference": {
+      "accuracy": 0.2,
+      "n": 30
+    },
+    "single-session-assistant": {
+      "accuracy": 0.9821,
+      "n": 56
+    },
+    "multi-session": {
+      "accuracy": 0.5639,
+      "n": 133
+    },
+    "temporal-reasoning": {
+      "accuracy": 0.6391,
+      "n": 133
+    },
+    "knowledge-update": {
+      "accuracy": 0.7308,
+      "n": 78
+    }
+  },
+  "retrieval": {
+    "granularity": "session",
+    "metrics@5": {
+      "recall": 0.8109,
+      "ndcg": 0.7574,
+      "n": 470
+    },
+    "metrics@10": {
+      "recall": 0.9112,
+      "ndcg": 0.7972,
+      "n": 470
+    }
+  },
+  "recall@5_by_type": {
+    "knowledge-update": 0.8333,
+    "multi-session": 0.8028,
+    "single-session-assistant": 1.0,
+    "single-session-preference": 0.7,
+    "single-session-user": 0.7344,
+    "temporal-reasoning": 0.7874
+  },
+  "split": "s",
+  "evolve": false,
+  "top_k": 10,
+  "model": "deepseek-v4-free",
+  "base_url": "http://10.0.62.177:4000/v1"
+}

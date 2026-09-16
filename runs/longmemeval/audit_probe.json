@@ -1,0 +1,134 @@
+[
+  {
+    "id": "e47becba",
+    "question": "What degree did I graduate with?",
+    "gold_rank": 6,
+    "expect_missing_keys_nonempty": true,
+    "heuristic_missing": [
+      "degree"
+    ],
+    "heuristic_slot": "query",
+    "llm_ok": true,
+    "llm_missing": [
+      "degree",
+      "graduate"
+    ],
+    "llm_slot": "query",
+    "llm_note": "attr-llm:unrecalled slot=query intents=['what degree', 'did i graduate with'] covered=[] missing=['degree', 'graduate']",
+    "top3": [
+      "2ae4f277_2",
+      "sharegpt_BvwQVCO_0",
+      "sharegpt_rnG0ZuV_0"
+    ]
+  },
+  {
+    "id": "118b2229",
+    "question": "How long is my daily commute to work?",
+    "gold_rank": null,
+    "expect_missing_keys_nonempty": true,
+    "heuristic_missing": [
+      "commute"
+    ],
+    "heuristic_slot": "query",
+    "llm_ok": true,
+    "llm_missing": [
+      "daily commute duration"
+    ],
+    "llm_slot": "query",
+    "llm_note": "attr-llm:unrecalled slot=query intents=['duration of daily commute', 'commute to work'] covered=[] missing=['daily commute duration']",
+    "top3": [
+      "b5f561f5_2",
+      "sharegpt_ltGQxlc_0",
+      "db50c0f6"
+    ]
+  },
+  {
+    "id": "58bf7951",
+    "question": "What play did I attend at the local community theater?",
+    "gold_rank": 5,
+    "expect_missing_keys_nonempty": false,
+    "heuristic_missing": [],
+    "heuristic_slot": "rank",
+    "llm_ok": true,
+    "llm_missing": [
+      "play attended",
+      "local community theater"
+    ],
+    "llm_slot": "query",
+    "llm_note": "attr-llm:unrecalled slot=query intents=['play attended', 'local community theater'] covered=[] missing=['play attended', 'local community theater']",
+    "top3": [
+      "793382f9_2",
+      "ultrachat_71618",
+      "ultrachat_155546"
+    ]
+  },
+  {
+    "id": "1e043500",
+    "question": "What is the name of the playlist I created on Spotify?",
+    "gold_rank": 10,
+    "expect_missing_keys_nonempty": true,
+    "heuristic_missing": [
+      "created",
+      "playlist",
+      "spotify"
+    ],
+    "heuristic_slot": "query",
+    "llm_ok": true,
+    "llm_missing": [
+      "playlist name",
+      "created on spotify"
+    ],
+    "llm_slot": "query",
+    "llm_note": "attr-llm:unrecalled slot=query intents=['name of playlist', 'created on spotify'] covered=[] missing=['playlist name', 'created on spotify']",
+    "top3": [
+      "e132259f",
+      "sharegpt_Ij8JbdT_0",
+      "8020d945_2"
+    ]
+  },
+  {
+    "id": "726462e0",
+    "question": "What was the discount I got on my first purchase from the new clothing brand?",
+    "gold_rank": null,
+    "expect_missing_keys_nonempty": true,
+    "heuristic_missing": [
+      "brand"
+    ],
+    "heuristic_slot": "query",
+    "llm_ok": true,
+    "llm_missing": [
+      "discount",
+      "first purchase",
+      "new clothing brand"
+    ],
+    "llm_slot": "query",
+    "llm_note": "attr-llm:unrecalled slot=query intents=['discount amount', 'first purchase', 'new clothing brand'] covered=[] missing=['discount', 'first purchase', 'new clothing brand']",
+    "top3": [
+      "cdd9704d_1",
+      "ultrachat_450587",
+      "7e4dab66_1"
+    ]
+  },
+  {
+    "id": "76d63226",
+    "question": "What size is my new Samsung TV?",
+    "gold_rank": null,
+    "expect_missing_keys_nonempty": true,
+    "heuristic_missing": [
+      "samsung",
+      "size"
+    ],
+    "heuristic_slot": "query",
+    "llm_ok": true,
+    "llm_missing": [
+      "samsung tv size"
+    ],
+    "llm_slot": "query",
+    "llm_note": "attr-llm:unrecalled slot=query intents=['tv size', 'new samsung tv'] covered=[] missing=['samsung tv size']",
+    "top3": [
+      "cb289226_1",
+      "50136b31",
+      "4c30e6b4"
+    ]
+  }
+]

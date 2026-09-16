@@ -1,0 +1,29 @@
+{
+  "n": 70,
+  "overall_accuracy": null,
+  "task_averaged_accuracy": null,
+  "abstention_accuracy": null,
+  "abstention_n": 0,
+  "qa_by_type": {},
+  "retrieval": {
+    "granularity": "session",
+    "metrics@5": {
+      "recall": 0.7344,
+      "ndcg": 0.6362,
+      "n": 64
+    },
+    "metrics@10": {
+      "recall": 0.8594,
+      "ndcg": 0.6766,
+      "n": 64
+    }
+  },
+  "recall@5_by_type": {
+    "single-session-user": 0.7344
+  },
+  "split": "s",
+  "evolve": true,
+  "top_k": 10,
+  "model": null,
+  "base_url": null
+}

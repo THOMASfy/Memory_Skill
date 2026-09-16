@@ -1,0 +1,76 @@
+n=21 qa={'False': 12, 'True': 9}
+hyp_starts_we_need=0
+gold@10 & qa false=8 true=9
+judge json-ish true=9 false=2 no_json=10
+rounds dist={1: 13, 3: 8}
+slots={None: 21, 'query': 16}
+last_round missing empty=14
+--- judge prefix ---
+     9 '{"correct": true} | We need answer JSON '
+     7 'We need answer JSON only. Need determine'
+     2 'We need answer as grader. Need determine'
+     2 '{"correct": false} | We need answer JSON'
+     1 'We need answer grade. Need determine if '
+--- examples gold@10 qa=false ---
+id=e47becba type=single-session-user gold_rank=6 R10=1.0
+  Q: What degree did I graduate with?
+  hyp: I do not know. The history chats do not contain any information about what degree you graduated with.
+  judge: We need answer as grader. Need determine if model response correct. Question asks "What degree did I graduate with?" Correct answer Business Administration. Model says doesn't know, history chats no info. Is model respon
+  r1 slot=None miss=[] top=['2ae4f277_2', 'sharegpt_BvwQVCO_0', 'sharegpt_rnG0ZuV_0', 'sharegpt_QZMeA7V_17', 'd94b721b']
+    note=attr-llm:unrecalled slot=query intents=['degree graduated with'] covered=[] missing=['degree', 'graduated'] enough=1
+id=51a45a95 type=single-session-user gold_rank=1 R10=1.0
+  Q: Where did I redeem a $5 coupon on coffee creamer?
+  hyp: The relevant information is from Session 1: /  / - You said: “I actually redeemed a $5 coupon on coffee creamer last Sunday, which was a nice surprise since I didn't know I had it in my email inbox.” / - You did **not** specif
+  judge: {"correct": false} / We need answer JSON only. Need determine if model response correct relative to correct answer Target. The model says doesn't know, not Target. So incorrect. Need output {"correct": false}. Ensure JSON 
+  r1 slot=None miss=[] top=['answer_d61669c7', 'sharegpt_0dVk0BE_1', 'sharegpt_apWLb2c_0', '5c44d9fe_1', '98c198fb']
+    note=attr-llm:unrecalled slot=query intents=['where redeemed', '$5 coupon', 'coffee creamer'] covered=[] missing=['$5 coupon', 'coffee creamer', 'where redeemed'] enough=1
+id=6ade9755 type=single-session-user gold_rank=1 R10=1.0
+  Q: Where do I take yoga classes?
+  hyp: Based on your history, you take yoga classes at **Serenity Yoga**. You also use the **Down Dog** app for home practice on days you can’t make it to the studio.
+  judge: We need answer JSON only. Need determine if model response correct. Question asks where do I take yoga classes? Correct answer Serenity Yoga. Model says Serenity Yoga, also Down Dog app for home practice. Is that correct
+  r1 slot=None miss=[] top=['answer_9398da02', 'sharegpt_DAr2SHr_0', '4f29941e_1', 'de5634fc_2', '910ed479_3']
+    note=attr=rank_refine proxy=1.030 top3_rel=1 keys=['classes', 'yoga'] missing_keys=none df3={'classes': 1, 'yoga': 1} rel=1 soft=9 hard=0 enough=1
+id=58ef2f1c type=single-session-user gold_rank=1 R10=1.0
+  Q: When did I volunteer at the local animal shelter's fundraising dinner?
+  hyp: You volunteered at the “Love is in the Air” fundraising dinner back in February.
+  judge: We need answer JSON only. Need determine if model response correct. Question asks when did I volunteer at local animal shelter's fundraising dinner? Correct answer February 14th. Model response: "You volunteered at the “
+  r1 slot=query miss=['animal shelter fundraising dinner'] top=['answer_59547700', 'e6ab6a7b_2', '13f3da23_3', 'sharegpt_eHZgwR0_9', 'fa668463']
+    note=attr-llm:unrecalled slot=query intents=['local animal shelter', 'fundraising dinner', 'volunteered'] covered=[] missing=['animal shelter fundraising dinner', 'volunteer date']
+  r2 slot=query miss=['animal shelter dinner'] top=['answer_59547700', 'e6ab6a7b_2', 'sharegpt_eHZgwR0_9', '403ee298_1', 'ultrachat_5212']
+    note=dead-end rollback; attr-llm:unrecalled slot=query intents=['when did i volunteer'] covered=[] missing=['volunteer date', 'animal shelter dinner']
+  r3 slot=None miss=['fundraising dinner date'] top=['answer_59547700', 'e6ab6a7b_2', 'sharegpt_eHZgwR0_9', 'ultrachat_3351', 'fa668463']
+    note=attr-llm:unrecalled slot=query intents=[] covered=[] missing=['fundraising dinner date']
+id=f8c5f88b type=single-session-user gold_rank=2 R10=1.0
+  Q: Where did I buy my new tennis racket from?
+  hyp: You bought your new tennis racket from a sports store downtown.
+  judge: We need answer JSON only. Need determine correctness. Question asks "Where did I buy my new tennis racket from?" Correct answer: "the sports store downtown". Model response: "You bought your new tennis racket from a spor
+  r1 slot=None miss=[] top=['15232887_1', 'answer_c3567066', '91880423', 'sharegpt_gt4wUkt_0', 'ad17b46e_1']
+    note=attr-llm:unrecalled slot=query intents=['new tennis racket', 'where it was bought'] covered=['tennis with friends'] missing=['tennis racket purchase', 'purchase location', 'store o
+id=3b6f954b type=single-session-user gold_rank=4 R10=1.0
+  Q: Where did I attend for my study abroad program?
+  hyp: I do not know. The provided chat history does not contain any information about where you attended for your study abroad program.
+  judge: We need answer as grader. Need determine if model response correct. Question asks where did I attend study abroad. Correct answer: University of Melbourne in Australia. Model says I do not know, chat history doesn't cont
+  r1 slot=None miss=[] top=['90b1c6d4_2', 'sharegpt_NbaVdlj_9', 'sharegpt_3bZSvyG_0', 'answer_94030872', 'sharegpt_ddHUPH2_0']
+    note=attr-llm:unrecalled slot=query intents=['study abroad program location', 'where attended study abroad'] covered=[] missing=['study abroad location'] enough=1
+id=66f24dbb type=single-session-user gold_rank=1 R10=1.0
+  Q: What did I buy for my sister's birthday gift?
+  hyp: You bought your sister a yellow dress and a pair of matching earrings for her birthday.
+  judge: We need answer JSON only. Need determine if model response correct. Question asks what did I buy for sister's birthday gift? Correct answer: a yellow dress. Model says bought sister a yellow dress and a pair of matching 
+  r1 slot=query miss=['purchased item'] top=['answer_fea2e4d3', '89452526_2', 'sharegpt_fXU9KOp_0', 'sharegpt_ontxSZ1_0', 'sharegpt_BvuMJIh_0']
+    note=attr-llm:unrecalled slot=query intents=["sister's birthday gift", 'what item was bought'] covered=[] missing=['sister birthday gift', 'purchased item']
+  r2 slot=query miss=['purchased item'] top=['answer_fea2e4d3', '89452526_2', 'sharegpt_fXU9KOp_0', 'sharegpt_BvuMJIh_0', '798e4ba3_2']
+    note=dead-end rollback; attr-llm:unrecalled slot=query intents=["sister's birthday gift", 'what item was bought'] covered=[] missing=['sister birthday gift', 'purchased item']
+  r3 slot=None miss=['buy', "sister's"] top=['answer_fea2e4d3', '89452526_2', 'sharegpt_fXU9KOp_0', 'sharegpt_ontxSZ1_0', 'sharegpt_BvuMJIh_0']
+    note=attr=rank_refine proxy=1.712 top3_rel=2 keys=["sister's", 'buy', 'birthday', 'gift'] missing_keys=none df3={"sister's": 1, 'buy': 1, 'birthday': 2, 'gift': 2} rel=2 soft=8 hard=0
+id=af8d2e46 type=single-session-user gold_rank=1 R10=1.0
+  Q: How many shirts did I pack for my 5-day trip to Costa Rica?
+  hyp: I do not know. The history chats do not mention a 5-day trip to Costa Rica or how many shirts you packed.
+  judge: We need answer grade. Need determine if model response correct. Question asks how many shirts did I pack for 5-day trip to Costa Rica? Correct answer 7. Model says doesn't know, history chats do not mention. We need judg
+  r1 slot=query miss=['shirt count'] top=['answer_82a04f59', 'f75238a5_1', '33c3b457', 'sharegpt_10E2Ygp_33', 'ced213c6']
+    note=attr-llm:unrecalled slot=query intents=['number of shirts packed', '5-day trip', 'costa rica'] covered=[] missing=['costa rica trip', '5-day trip', 'shirt count']
+  r2 slot=query miss=['shirt count'] top=['33c3b457', 'answer_82a04f59', 'f75238a5_1', 'sharegpt_M7hMNNF_11', 'sharegpt_ErKpuag_0']
+    note=dead-end rollback; attr-llm:unrecalled slot=query intents=['number of shirts packed', '5-day trip', 'costa rica'] covered=[] missing=['shirt count', 'costa rica trip', '5-day trip'
+  r3 slot=None miss=[] top=['answer_82a04f59', '4ebc182b', '33c3b457', 'f75238a5_1', 'db6ddaba']
+    note=attr-llm:unrecalled slot=query intents=['number of shirts packed', '5-day trip', 'costa rica'] covered=[] missing=['costa rica trip', '5-day trip', 'shirts packed count'] enough=1
+--- injection salvage (r1 gold not in top5, later in top5) ---
+salvage QUERY=0 RANK=0 later_worse=1 later_same_or_better=7

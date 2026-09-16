@@ -1,7 +1,11 @@
 ﻿__pycache__/
 *.pyc
 .venv/
-runs/
 data/
 *.npy
 .DS_Store
+
+# Keep eval logs; ignore embedding / other run caches
+runs/*
+!runs/longmemeval/
+!runs/longmemeval/**
